@@ -1,0 +1,9 @@
+name = "dolphin-platform"
+pages_build_output_dir = "dist"
+compatibility_date = "2025-04-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "dolphin-platform-db"
+database_id = "ef5fa600-aba2-4eeb-9302-6d1e0431abf9"
