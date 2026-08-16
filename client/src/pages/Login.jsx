@@ -388,9 +388,14 @@ export default function Login() {
                     </span>
                   </div>
                   {!isRegister && (
-                    <span className="text-sm text-text-muted cursor-pointer hover:text-text-tertiary transition-colors">
-                      忘记密码
-                    </span>
+                    <a
+                      href="https://t.me/meilala32"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-text-muted cursor-pointer hover:text-text-tertiary transition-colors"
+                    >
+                      忘记密码请联系@meilala32
+                    </a>
                   )}
                 </div>
               </form>
