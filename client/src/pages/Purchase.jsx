@@ -233,7 +233,7 @@ export default function Purchase() {
 
                   {/* Stock */}
                   <p className="text-sm" style={{ color: '#AAB7C4' }}>
-                    库存：<span className="text-white font-medium">{tab === 'facebook' ? '94' : '充足'}</span>
+                    库存：<span className="text-white font-medium">{tab === 'facebook' ? '83' : '充足'}</span>
                   </p>
                 </div>
 
