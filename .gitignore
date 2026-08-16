@@ -1,0 +1,15 @@
+node_modules/
+dist/
+*.db
+*.db-shm
+*.db-wal
+.env
+.env.local
+.DS_Store
+*.log
+/A_001.png
+/A_002.JPG
+/map.png
+/pngtree-*.png
+/transfercode.jpg
+/0*.png

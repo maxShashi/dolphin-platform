@@ -1,0 +1,17 @@
+{
+  "name": "dolphin-digital-marketing-platform",
+  "version": "1.0.0",
+  "description": "海豚数字营销平台 - 全球一站式智能营销服务平台",
+  "scripts": {
+    "install:all": "cd server && npm install && cd ../client && npm install",
+    "seed": "cd server && node seed.js",
+    "dev:server": "cd server && node index.js",
+    "dev:client": "cd client && npx vite",
+    "dev": "npx concurrently --kill-others \"cd server && node index.js\" \"cd client && npx vite\"",
+    "start": "npx concurrently --kill-others \"cd server && node index.js\" \"cd client && npx vite\"",
+    "build": "cd client && npx vite build"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
