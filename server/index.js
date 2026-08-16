@@ -20,7 +20,13 @@ const allowedOrigins = [
   process.env.CORS_ORIGIN,
 ].filter(Boolean);
 
-app.use(cors({ origin: allowedOrigins, credentials: true }));
+// In production, allow all origins (Render doesn't have a fixed domain in blueprint)
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production' ? true : allowedOrigins,
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(morgan('dev'));
 app.use(express.json());
 
