@@ -175,7 +175,7 @@ export default function RentalOrders() {
         </div>
 
         {/* Platform tabs */}
-        <div className="flex gap-6 border-b border-white/5 mb-5">
+        <div className="flex gap-6 border-b border-white/5 mb-5 overflow-x-auto overflow-y-hidden flex-nowrap whitespace-nowrap">
           {platformTabs.map((tab) => (
             <button
               key={tab}
@@ -201,7 +201,7 @@ export default function RentalOrders() {
         </div>
 
         {/* Status tabs */}
-        <div className="flex gap-6 border-b border-white/5 mb-5">
+        <div className="flex gap-6 border-b border-white/5 mb-5 overflow-x-auto overflow-y-hidden flex-nowrap whitespace-nowrap">
           {statusTabs.map((tab) => (
             <button
               key={tab}
@@ -249,14 +249,14 @@ export default function RentalOrders() {
 
         {/* Filter row */}
         <div className="flex flex-wrap items-center gap-3 mb-3">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full md:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>订单号</span>
             <input
               type="text"
               value={filters.orderNo}
               onChange={(e) => handleFilterChange('orderNo', e.target.value)}
               placeholder="请输入订单号"
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-[140px]"
+              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-full md:w-[140px]"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -264,14 +264,14 @@ export default function RentalOrders() {
             />
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full md:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>账号ID</span>
             <input
               type="text"
               value={filters.accountId}
               onChange={(e) => handleFilterChange('accountId', e.target.value)}
               placeholder="请输入账号ID"
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-[140px]"
+              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-full md:w-[140px]"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -279,12 +279,12 @@ export default function RentalOrders() {
             />
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full md:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>商业号</span>
             <select
               value={filters.businessNo}
               onChange={(e) => handleFilterChange('businessNo', e.target.value)}
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 min-w-[120px]"
+              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-full md:min-w-[120px]"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -296,7 +296,7 @@ export default function RentalOrders() {
         </div>
 
         <div className="flex flex-wrap items-center gap-3 mb-5">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full md:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>创建时间</span>
             <DateRangeSelector 
               value={{ start: filters.createStart || '', end: filters.createEnd || '' }} 
@@ -305,7 +305,7 @@ export default function RentalOrders() {
             />
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full md:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>完成时间</span>
             <DateRangeSelector 
               value={{ start: filters.completeStart || '', end: filters.completeEnd || '' }} 
@@ -351,7 +351,9 @@ export default function RentalOrders() {
             <div className="w-8 h-8 border-2 border-brand-500 border-t-transparent rounded-full animate-spin" />
           </div>
         ) : (
-          <DataTable columns={columns} data={data} emptyText="暂无租赁订单数据" />
+          <div className="table-scroll">
+            <DataTable columns={columns} data={data} emptyText="暂无租赁订单数据" />
+          </div>
         )}
 
         {/* Pagination */}

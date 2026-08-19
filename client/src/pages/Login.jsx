@@ -63,9 +63,9 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex relative overflow-hidden" style={{ backgroundColor: '#070B1A' }}>
+    <div className="min-h-screen flex flex-col lg:flex-row relative overflow-hidden" style={{ backgroundColor: '#070B1A' }}>
       {/* Left Side - Atmosphere Area (60%) */}
-      <div className="w-[60%] relative flex flex-col items-center justify-center px-12 py-8" style={{ minHeight: '100vh' }}>
+      <div className="w-full lg:w-[60%] relative flex flex-col items-center justify-center px-6 lg:px-12 py-8" style={{ minHeight: '100vh' }}>
         {/* Background glows */}
         <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none" style={{
           background: 'radial-gradient(circle, rgba(123, 44, 255, 0.15) 0%, transparent 70%)',
@@ -127,13 +127,13 @@ export default function Login() {
       </div>
 
       {/* Right Side - Login Form (40%) */}
-      <div className="w-[40%] relative flex items-center justify-center" style={{ minHeight: '100vh' }}>
+      <div className="w-full lg:w-[40%] relative flex items-center justify-center" style={{ minHeight: '100vh' }}>
         {/* Background overlay */}
         <div className="absolute inset-0 pointer-events-none" style={{
           background: 'linear-gradient(135deg, rgba(123, 44, 255, 0.05) 0%, transparent 50%, rgba(0, 212, 255, 0.05) 100%)',
         }} />
 
-        <div className="relative z-10 w-full max-w-md px-8">
+        <div className="relative z-10 w-full max-w-full md:max-w-md px-4 md:px-8">
           {/* Language Dropdown - Top Right */}
           <div className="flex justify-end mb-6 relative">
             <button

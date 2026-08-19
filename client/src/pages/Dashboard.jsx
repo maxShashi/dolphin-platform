@@ -309,7 +309,7 @@ export default function Dashboard() {
       {/* ══════════════════════════════════════════
           MODULE 1: Welcome Card
           ══════════════════════════════════════════ */}
-      <div className="glass-1 px-6 py-5 flex items-center justify-between">
+      <div className="glass-1 px-6 py-5 flex-col sm:flex-row items-center justify-between">
         <div className="flex items-center gap-4">
           <div
             className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-bold text-white"
@@ -429,7 +429,7 @@ export default function Dashboard() {
             <select
               value={adAccount}
               onChange={(e) => setAdAccount(e.target.value)}
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200"
+              className="w-full sm:w-auto px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -443,7 +443,7 @@ export default function Dashboard() {
             <select
               value={timezone}
               onChange={(e) => setTimezone(e.target.value)}
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200"
+              className="w-full sm:w-auto px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',

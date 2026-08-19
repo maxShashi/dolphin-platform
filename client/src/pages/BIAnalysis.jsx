@@ -206,7 +206,7 @@ export default function BIAnalysis() {
         {/* Filter row */}
         <div className="flex flex-wrap items-center gap-3 mb-5">
           {/* 时间范围 */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full md:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>时间范围</span>
             <select
               value={timeRange}
@@ -214,7 +214,7 @@ export default function BIAnalysis() {
                 setTimeRange(e.target.value)
                 setPagination((prev) => ({ ...prev, current: 1 }))
               }}
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 min-w-[100px]"
+              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-full md:min-w-[100px]"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -229,7 +229,7 @@ export default function BIAnalysis() {
           </div>
 
           {/* 账号属性 */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full md:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>账号属性</span>
             <select
               value={accountAttr}
@@ -237,7 +237,7 @@ export default function BIAnalysis() {
                 setAccountAttr(e.target.value)
                 setPagination((prev) => ({ ...prev, current: 1 }))
               }}
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 min-w-[100px]"
+              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-full md:min-w-[100px]"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -252,7 +252,7 @@ export default function BIAnalysis() {
           </div>
 
           {/* 账号ID */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full md:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>账号ID</span>
             <input
               type="text"
@@ -262,7 +262,7 @@ export default function BIAnalysis() {
                 setPagination((prev) => ({ ...prev, current: 1 }))
               }}
               placeholder="请输入账号ID"
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-[140px]"
+              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-full md:w-[140px]"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -271,7 +271,7 @@ export default function BIAnalysis() {
           </div>
 
           {/* 账号名称 */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full md:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>账号名称</span>
             <input
               type="text"
@@ -281,7 +281,7 @@ export default function BIAnalysis() {
                 setPagination((prev) => ({ ...prev, current: 1 }))
               }}
               placeholder="请输入账号名称"
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-[140px]"
+              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-full md:w-[140px]"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -450,7 +450,9 @@ export default function BIAnalysis() {
             <div className="w-8 h-8 border-2 border-brand-500 border-t-transparent rounded-full animate-spin" />
           </div>
         ) : (
-          <DataTable columns={columns} data={tableData} emptyText="暂无消耗数据" />
+          <div className="table-scroll">
+            <DataTable columns={columns} data={tableData} emptyText="暂无消耗数据" />
+          </div>
         )}
 
         {/* Pagination */}

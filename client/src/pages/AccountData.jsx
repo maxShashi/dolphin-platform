@@ -214,7 +214,7 @@ export default function AccountData() {
     return (
       <>
         {/* Sub-tabs */}
-        <div className="flex gap-6 border-b border-white/5 mb-5">
+        <div className="flex gap-6 border-b border-white/5 mb-5 overflow-x-auto overflow-y-hidden flex-nowrap whitespace-nowrap">
           {consumptionSubTabs.map((tab) => (
             <button
               key={tab}
@@ -366,7 +366,7 @@ export default function AccountData() {
       {/* ══════════════════════════════════════════
           Sub-tab navigation (sidebar style)
           ══════════════════════════════════════════ */}
-      <div className="flex gap-1.5 glass-1 p-1.5" style={{ width: 'fit-content' }}>
+      <div className="flex gap-1.5 glass-1 p-1.5 overflow-x-auto overflow-y-hidden flex-nowrap" style={{ width: 'fit-content', maxWidth: '100%' }}>
         {subTabs.map((tab) => {
           const Icon = tab.icon
           return (

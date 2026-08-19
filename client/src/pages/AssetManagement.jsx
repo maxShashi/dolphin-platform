@@ -358,7 +358,7 @@ export default function AssetManagement() {
         {/* ══════════════════════════════════════════
             Summary Cards Row
             ══════════════════════════════════════════ */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           {summaryCards.map((card) => {
             const Icon = card.icon
             const value = summary[card.key]
@@ -499,11 +499,13 @@ export default function AssetManagement() {
             <div className="w-8 h-8 border-2 border-brand-500 border-t-transparent rounded-full animate-spin" />
           </div>
         ) : (
-          <DataTable
-            columns={getColumns(activeTab)}
-            data={tableData}
-            emptyText="暂无数据"
-          />
+          <div className="table-scroll">
+            <DataTable
+              columns={getColumns(activeTab)}
+              data={tableData}
+              emptyText="暂无数据"
+            />
+          </div>
         )}
 
         {/* Pagination */}

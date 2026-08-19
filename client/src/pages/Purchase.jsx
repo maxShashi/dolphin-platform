@@ -151,10 +151,10 @@ export default function Purchase() {
 
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Main content area */}
-        <div className="flex-1 space-y-4">
+        <div className="flex-1 space-y-4 md:space-y-6">
           <GlassCard variant="1" className="p-6">
             {/* Tabs */}
-            <div className="flex gap-6 border-b border-white/5 mb-6">
+            <div className="flex gap-6 border-b border-white/5 mb-6 overflow-x-auto flex-nowrap">
               <button
                 onClick={() => setTab('facebook')}
                 className="pb-3 text-sm font-medium relative transition-colors"
@@ -204,7 +204,7 @@ export default function Purchase() {
                   <img
                     src={tab === 'facebook' ? '/A_001.png' : '/A_002.JPG'}
                     alt={tab === 'facebook' ? 'Facebook三不限账户' : '广告代投'}
-                    className="w-full min-h-[400px] object-contain rounded-lg"
+                    className="w-full max-w-full min-h-[400px] object-contain rounded-lg"
                   />
                 </div>
               </div>
@@ -278,11 +278,11 @@ export default function Purchase() {
           </GlassCard>
 
           {/* 3 small glass-2 glowing buttons */}
-          <div className="flex gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {featureButtons.map((label) => (
               <button
                 key={label}
-                className="glass-2 px-5 py-2.5 rounded-lg text-sm text-text-secondary hover:text-white transition-all duration-200 hover:shadow-glow-weak"
+                className="glass-2 px-5 py-2.5 rounded-lg text-sm text-text-secondary hover:text-white transition-all duration-200 hover:shadow-glow-weak w-full"
               >
                 {label}
               </button>

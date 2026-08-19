@@ -214,12 +214,12 @@ export default function AccountManagement() {
 
         {/* Filter row 1 */}
         <div className="flex flex-wrap items-center gap-3 mb-3">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full sm:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>账号类型</span>
             <select
               value={filters.accountType}
               onChange={(e) => handleFilterChange('accountType', e.target.value)}
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 min-w-[100px]"
+              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 min-w-[100px] w-full sm:w-auto"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -233,12 +233,12 @@ export default function AccountManagement() {
             </select>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full sm:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>账号属性</span>
             <select
               value={filters.accountAttr}
               onChange={(e) => handleFilterChange('accountAttr', e.target.value)}
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 min-w-[100px]"
+              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 min-w-[100px] w-full sm:w-auto"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -252,14 +252,14 @@ export default function AccountManagement() {
             </select>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full sm:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>账号ID</span>
             <input
               type="text"
               value={filters.accountId}
               onChange={(e) => handleFilterChange('accountId', e.target.value)}
               placeholder="请输入账号ID"
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-[140px]"
+              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-full sm:w-[140px]"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -267,14 +267,14 @@ export default function AccountManagement() {
             />
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full sm:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>账号名称</span>
             <input
               type="text"
               value={filters.accountName}
               onChange={(e) => handleFilterChange('accountName', e.target.value)}
               placeholder="请输入账号名称"
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-[140px]"
+              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-full sm:w-[140px]"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -285,20 +285,22 @@ export default function AccountManagement() {
 
         {/* Filter row 2 */}
         <div className="flex flex-wrap items-center gap-3 mb-5">
-          <DateRangeSelector 
+          <div className="w-full sm:w-auto">
+            <DateRangeSelector 
               value={{ start: filters.deliveryStart || '', end: filters.deliveryEnd || '' }} 
               onChange={(range) => { handleFilterChange('deliveryStart', range.start); handleFilterChange('deliveryEnd', range.end) }} 
               placeholder="交付时间"
             />
+          </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full sm:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>租赁备注</span>
             <input
               type="text"
               value={filters.rentalNote}
               onChange={(e) => handleFilterChange('rentalNote', e.target.value)}
               placeholder="租赁备注"
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-[120px]"
+              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-full sm:w-[120px]"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -306,14 +308,14 @@ export default function AccountManagement() {
             />
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full sm:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>账号备注</span>
             <input
               type="text"
               value={filters.accountNote}
               onChange={(e) => handleFilterChange('accountNote', e.target.value)}
               placeholder="账号备注"
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-[120px]"
+              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 w-full sm:w-[120px]"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -321,12 +323,12 @@ export default function AccountManagement() {
             />
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full sm:w-auto">
             <span className="text-xs whitespace-nowrap" style={{ color: '#AAB7C4' }}>账号标签</span>
             <select
               value={filters.accountTag}
               onChange={(e) => handleFilterChange('accountTag', e.target.value)}
-              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 min-w-[100px]"
+              className="px-3 py-1.5 rounded-lg text-xs text-text-secondary outline-none transition-all duration-200 min-w-[100px] w-full sm:w-auto"
               style={{
                 background: 'rgba(0, 0, 0, 0.3)',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -345,7 +347,7 @@ export default function AccountManagement() {
         <div className="flex flex-wrap items-center gap-3 mb-5">
           <button
             onClick={handleExport}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white transition-all duration-200"
+            className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white transition-all duration-200 w-full sm:w-auto"
             style={{
               background: 'linear-gradient(135deg, #7B2CFF, #00D4FF)',
               boxShadow: '0 0 8px rgba(123, 44, 255, 0.3)',
@@ -358,7 +360,7 @@ export default function AccountManagement() {
           </button>
           <button
             onClick={handleBatchClear}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white transition-all duration-200"
+            className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white transition-all duration-200 w-full sm:w-auto"
             style={{
               background: 'linear-gradient(135deg, #7B2CFF, #00D4FF)',
               boxShadow: '0 0 8px rgba(123, 44, 255, 0.3)',
@@ -371,7 +373,7 @@ export default function AccountManagement() {
           </button>
           <button
             onClick={handleBatchAdjust}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white transition-all duration-200"
+            className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white transition-all duration-200 w-full sm:w-auto"
             style={{
               background: 'linear-gradient(135deg, #7B2CFF, #00D4FF)',
               boxShadow: '0 0 8px rgba(123, 44, 255, 0.3)',
@@ -384,7 +386,7 @@ export default function AccountManagement() {
           </button>
           <button
             onClick={handleBatchRecharge}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white transition-all duration-200"
+            className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white transition-all duration-200 w-full sm:w-auto"
             style={{
               background: 'linear-gradient(135deg, #7B2CFF, #00D4FF)',
               boxShadow: '0 0 8px rgba(123, 44, 255, 0.3)',
@@ -403,7 +405,9 @@ export default function AccountManagement() {
             <div className="w-8 h-8 border-2 border-brand-500 border-t-transparent rounded-full animate-spin" />
           </div>
         ) : (
-          <DataTable columns={columns} data={data} emptyText="暂无账号数据" />
+          <div className="table-scroll">
+            <DataTable columns={columns} data={data} emptyText="暂无账号数据" />
+          </div>
         )}
 
         {/* Pagination */}
