@@ -27,12 +27,10 @@ async function sendTelegramMessage(env, chatId, text) {
 
 async function notifyRegistration(env, username, email) {
   try {
-    const binding = await env.DB.prepare(
-      'SELECT chat_id FROM telegram_bindings WHERE username = ?'
-    ).bind(username).first();
-    if (!binding) return; // not bound to a group yet
-    const text = `尊敬的 <b>${username}</b> 用户，欢迎注册海豚平台。\n助力个人与企业海外引流获客，提供一站式营销引流方案，请认准海豚。`;
-    await sendTelegramMessage(env, binding.chat_id, text);
+    const adminId = env.TELEGRAM_ADMIN_ID;
+    if (!adminId) return;
+    const text = `🆕 新用户注册通知\n\n<b>用户名：</b>${username}\n<b>邮箱：</b>${email}\n\n请创建私人群组，将 Bot 和用户加入群后，在私聊发送：\n<code>/bind ${username} 群链接 用户Telegram用户名</code>`;
+    await sendTelegramMessage(env, adminId, text);
   } catch (err) {
     console.error('Registration notify error:', err);
   }

@@ -76,12 +76,21 @@ CREATE TABLE IF NOT EXISTS consumption_data (
   account_id TEXT
 );
 
--- Telegram bindings: maps platform username to a Telegram group chat_id
+-- Telegram groups: stores groups the bot has joined
+CREATE TABLE IF NOT EXISTS telegram_groups (
+  chat_id TEXT PRIMARY KEY,
+  chat_title TEXT,
+  invite_link TEXT,
+  created_at TEXT
+);
+
+-- Telegram bindings: maps platform username to a Telegram group
 CREATE TABLE IF NOT EXISTS telegram_bindings (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   username TEXT UNIQUE,
   chat_id TEXT,
-  chat_title TEXT,
+  telegram_username TEXT,
+  group_link TEXT,
   created_at TEXT
 );
 
