@@ -76,6 +76,15 @@ CREATE TABLE IF NOT EXISTS consumption_data (
   account_id TEXT
 );
 
+-- Telegram bindings: maps platform username to a Telegram group chat_id
+CREATE TABLE IF NOT EXISTS telegram_bindings (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT UNIQUE,
+  chat_id TEXT,
+  chat_title TEXT,
+  created_at TEXT
+);
+
 -- Seed admin user (password: admin123)
 INSERT OR IGNORE INTO users (id, username, email, password, display_name, created_at, updated_at)
 VALUES (1, 'admin', 'admin@dolphin.com', '$2a$10$.z78LYXLslSWsijyEhTTRut706oLcuFRSvzS81chpi55gsEBujwGi', 'BatraShashi', '2024-01-01T00:00:00.000Z', '2024-01-01T00:00:00.000Z');

@@ -4,6 +4,40 @@ import bcrypt from 'bcryptjs';
 const JWT_SECRET = new TextEncoder().encode('dolphin-secret-key-2024');
 const ADMIN_EMAIL = 'admin@dolphin.com';
 
+// ─── Telegram Helper ───
+async function sendTelegramMessage(env, chatId, text) {
+  const token = env.TELEGRAM_BOT_TOKEN;
+  if (!token || !chatId) return null;
+  try {
+    const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text,
+        parse_mode: 'HTML',
+      }),
+    });
+    return await res.json();
+  } catch (err) {
+    console.error('Telegram send error:', err);
+    return null;
+  }
+}
+
+async function notifyRegistration(env, username, email) {
+  try {
+    const binding = await env.DB.prepare(
+      'SELECT chat_id FROM telegram_bindings WHERE username = ?'
+    ).bind(username).first();
+    if (!binding) return; // not bound to a group yet
+    const text = `尊敬的 <b>${username}</b> 用户，欢迎注册海豚平台。\n助力个人与企业海外引流获客，提供一站式营销引流方案，请认准海豚。`;
+    await sendTelegramMessage(env, binding.chat_id, text);
+  } catch (err) {
+    console.error('Registration notify error:', err);
+  }
+}
+
 // Helper: JSON response
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
@@ -75,6 +109,9 @@ export async function onRequest(context) {
         .setProtectedHeader({ alg: 'HS256' })
         .setExpirationTime('7d')
         .sign(JWT_SECRET);
+
+      // Notify Telegram group (fire and forget, doesn't block response)
+      notifyRegistration(env, displayName, email);
 
       return json({
         code: 200,
